@@ -1,0 +1,16 @@
+{
+  "name": "sistemium-dates",
+  "version": "1.0.0",
+  "description": "Sistemium datetime helpers",
+  "main": "lib/dates.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alexander Levin",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.9.7",
+    "lodash": "^4.17.20"
+  }
+}

@@ -1,25 +1,24 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import range from 'lodash/range';
-
-require('dayjs/locale/ru');
+import 'dayjs/locale/ru';
 
 dayjs.extend(utc);
 
 export default dayjs;
 
-export function serverTimestamp(date = new Date()) {
+export function serverTimestamp(date: Date = new Date()) {
   return dayjs(date)
     .utc()
     .format('YYYY-MM-DD HH:mm:ss.SSS');
 }
 
-export function fromServerTimestamp(ts) {
+export function fromServerTimestamp(ts: string) {
   return dayjs.utc(ts)
     .toDate();
 }
 
-export function addMonths(date, months = 1) {
+export function addMonths(date: string | Date, months: number = 1) {
   return dayjs(date)
     .add(months, 'month')
     .format('YYYY-MM-DD');
@@ -30,18 +29,18 @@ export function currentMonth() {
     .format('YYYY-MM');
 }
 
-export function monthEnd(monthId) {
+export function monthEnd(monthId: string) {
   return dayjs(monthStart(monthId))
     .add(1, 'month')
     .add(-1, 'day')
     .format('YYYY-MM-DD');
 }
 
-export function monthStart(monthId) {
+export function monthStart(monthId: string) {
   return `${monthId}-01`;
 }
 
-export function monthToWhere(monthId) {
+export function monthToWhere(monthId: string) {
 
   const {
     dateE,
@@ -55,7 +54,7 @@ export function monthToWhere(monthId) {
 
 }
 
-export function dateBE(monthId) {
+export function dateBE(monthId: string) {
   return {
     dateB: monthStart(monthId),
     dateE: monthEnd(monthId),
@@ -63,7 +62,7 @@ export function dateBE(monthId) {
 }
 
 
-export function monthGenerator(num, date = new Date()) {
+export function monthGenerator(num: number, date: Date = new Date()) {
 
   return range(num)
     .map(i => {
